@@ -1,1 +1,18 @@
-<p>main-layout works!</p>
+<div class="container">
+  <nav class="teal darken-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a [routerLink]="['/posts']">Posts</a></li>
+        <li><a [routerLink]="['/post/:id']">Post</a></li>
+        <li><a [routerLink]="['/comments/post/:id']">Comment by id post</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <router-outlet>
+
+  </router-outlet>
+</div>
+
+
