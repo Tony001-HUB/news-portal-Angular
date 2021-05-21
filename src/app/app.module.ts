@@ -9,6 +9,7 @@ import { PostPageComponent } from './user/post-page/post-page.component';
 import { CommentsPageComponent } from './user/comments-page/comments-page.component';
 import { LoginPageComponent } from './admin/login-page/login-page.component';
 import { CartPostsPageComponent } from './user/cart-posts-page/cart-posts-page.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CartPostsPageComponent } from './user/cart-posts-page/cart-posts-page.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

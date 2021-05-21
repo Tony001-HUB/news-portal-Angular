@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoriesService} from "../../service/categories.service";
+import {Category} from "../../models/category";
+import { Subscription } from 'rxjs';
+import {Response} from "../../models/response";
+import { Observable } from 'rxjs';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-categories-page',
@@ -7,9 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private categoriesService: CategoriesService) { }
+  public category: Category[];
 
   ngOnInit(): void {
+    this.categoriesService.getAllCategories(1, 10).subscribe(data => {
+      this.category = data.category;
+    });
   }
 
 }

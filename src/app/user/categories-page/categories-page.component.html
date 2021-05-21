@@ -1,1 +1,11 @@
-<p>categories-page works!~!!!</p>
+<div *ngFor="let currentCategory of category">
+    <div class="card">
+      <p>
+        {{currentCategory.title}}
+      </p>
+      <p>
+        {{currentCategory.categoryId}}
+      </p>
+    </div>
+</div>
+

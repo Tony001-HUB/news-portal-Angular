@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  getCategoriesUrl: "https://localhost:44322/Categories"
 };
