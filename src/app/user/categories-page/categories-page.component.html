@@ -1,10 +1,27 @@
 <div *ngIf="category$ | async as response">
-  <div *ngFor="let currentCategory of response.currentPageItems">
-    <p>
-      {{currentCategory.title}}
-    </p>
-    <p>
-      {{currentCategory.categoryId}}
-    </p>
+  <div class="grid-container">
+    <div *ngFor="let currentCategory of response.currentPageItems">
+      <div class="card">
+        <p>
+          {{currentCategory.title}}
+        </p>
+        <p>
+          {{currentCategory.categoryId}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-center">
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasPreviousPage"
+      (click)="previousBtnClick()">
+    <---</button>
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasNextPage"
+      (click)="nextBtnClick()">
+    ---></button>
   </div>
 </div>
