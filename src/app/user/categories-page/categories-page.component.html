@@ -1,11 +1,10 @@
-<div *ngFor="let currentCategory of category">
-    <div class="card">
-      <p>
-        {{currentCategory.title}}
-      </p>
-      <p>
-        {{currentCategory.categoryId}}
-      </p>
-    </div>
+<div *ngIf="category$ | async as response">
+  <div *ngFor="let currentCategory of response.currentPageItems">
+    <p>
+      {{currentCategory.title}}
+    </p>
+    <p>
+      {{currentCategory.categoryId}}
+    </p>
+  </div>
 </div>
-

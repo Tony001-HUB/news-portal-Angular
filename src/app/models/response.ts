@@ -1,5 +1,5 @@
-export interface Response {
-  currentPageItems: any;
+export interface Response<TItem> {
+  currentPageItems: TItem[];
   currentPageNumber: number;
   hasNextPage: boolean;
   hasPreviousPage: boolean;

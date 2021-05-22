@@ -8,7 +8,7 @@ import { CategoriesPageComponent } from './user/categories-page/categories-page.
 import { PostPageComponent } from './user/post-page/post-page.component';
 import { CommentsPageComponent } from './user/comments-page/comments-page.component';
 import { LoginPageComponent } from './admin/login-page/login-page.component';
-import { CartPostsPageComponent } from './user/cart-posts-page/cart-posts-page.component';
+import { CardPostsPageComponent } from './user/card-posts-page/card-posts-page.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
@@ -19,7 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
     PostPageComponent,
     CommentsPageComponent,
     LoginPageComponent,
-    CartPostsPageComponent
+    CardPostsPageComponent
   ],
   imports: [
     BrowserModule,

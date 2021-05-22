@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {MainLayoutComponent} from "./user/main-layout/main-layout.component";
 import {CategoriesPageComponent} from "./user/categories-page/categories-page.component";
-import {CartPostsPageComponent} from "./user/cart-posts-page/cart-posts-page.component";
+import {CardPostsPageComponent} from "./user/card-posts-page/card-posts-page.component";
 import {PostPageComponent} from "./user/post-page/post-page.component";
 import {CommentsPageComponent} from "./user/comments-page/comments-page.component";
 
@@ -11,7 +11,7 @@ const routes: Routes = [
       {path: '', redirectTo: '/', pathMatch: 'full'},
 
       {path: '', component: CategoriesPageComponent},
-      {path: 'posts', component: CartPostsPageComponent},
+      {path: 'posts', component: CardPostsPageComponent},
       {path: 'post/:id', component: PostPageComponent},
       {path: 'comments/post/:id', component: CommentsPageComponent}
   ]}

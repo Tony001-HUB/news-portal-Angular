@@ -14,12 +14,10 @@ import { async } from 'rxjs';
 export class CategoriesPageComponent implements OnInit {
 
   constructor(private categoriesService: CategoriesService) { }
-  public category: Category[];
+  public category$: Observable<Response<Category>>;
 
   ngOnInit(): void {
-    this.categoriesService.getAllCategories(1, 10).subscribe(data => {
-      this.category = data.category;
-    });
+    this.category$ = this.categoriesService.getAllCategories(1, 10);
   }
 
 }
