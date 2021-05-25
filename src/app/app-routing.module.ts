@@ -10,8 +10,8 @@ const routes: Routes = [
   {path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
 
-      {path: '', component: CategoriesPageComponent},
-      {path: 'posts', component: CardPostsPageComponent},
+      {path: '', component: CardPostsPageComponent},
+      {path: 'category', component: CategoriesPageComponent},
       {path: 'post.ts/:id', component: PostPageComponent},
       {path: 'comments/post.ts/:id', component: CommentsPageComponent}
   ]}
