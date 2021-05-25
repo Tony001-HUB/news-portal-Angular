@@ -17,7 +17,7 @@ export class PostsService {
     return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=${pageNumber}&PageSize=${pageSize}`);
   }
 
-  getNextPostPage(pageSize: number): Observable<Response<Post>> {
-    return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=1&PageSize=${pageSize}`);
+  getPostById(id: string): Observable<Response<Post>> {
+    return this.http.get<Response<Post>>(`${environment.getPostByIdUrl}/${id}`);
   }
 }

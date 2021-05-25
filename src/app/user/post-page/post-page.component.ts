@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import {PostsService} from "../../service/posts.service";
-import {PageOptions} from "../../models/pageOptions";
 import {Observable} from "rxjs";
 import {Response} from "../../models/response";
-import {Category} from "../../models/category";
 import {Post} from "../../models/post";
 
 @Component({
@@ -13,11 +13,14 @@ import {Post} from "../../models/post";
 })
 export class PostPageComponent implements OnInit {
 
-  constructor() {
-  }
+  id = '';
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private postsService: PostsService){}
 
+  ngOnInit() {
+    this.route.paramMap.pipe(
+      switchMap(params => params.get('id'))
+    ).subscribe(data => this.postsService.getPostById(this.id += data));
   }
 
 }
