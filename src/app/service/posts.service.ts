@@ -14,6 +14,10 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   getAllPosts(pageNumber: number, pageSize: number): Observable<Response<Post>> {
-    return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=${pageNumber}&PageSize=${pageSize}`)
+    return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=${pageNumber}&PageSize=${pageSize}`);
+  }
+
+  getNextPostPage(pageSize: number): Observable<Response<Post>> {
+    return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=1&PageSize=${pageSize}`);
   }
 }
