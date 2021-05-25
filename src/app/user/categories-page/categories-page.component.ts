@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import {Response} from "../../models/response";
 import { Observable } from 'rxjs';
 import { async } from 'rxjs';
-import { CategoriesPageSize } from 'src/app/models/categories-page-size';
+import { PageOptions } from 'src/app/models/pageOptions';
 
 @Component({
   selector: 'app-categories-page',
@@ -19,14 +19,14 @@ export class CategoriesPageComponent implements OnInit {
   private pageNumber = 1;
 
   ngOnInit(): void {
-    this.category$ = this.categoriesService.getAllCategories(this.pageNumber, CategoriesPageSize.pageSize);
+    this.category$ = this.categoriesService.getAllCategories(this.pageNumber, PageOptions.pageSize);
   }
 
   previousBtnClick() {
-    this.category$ = this.categoriesService.getAllCategories(--this.pageNumber, CategoriesPageSize.pageSize);
+    this.category$ = this.categoriesService.getAllCategories(--this.pageNumber, PageOptions.pageSize);
   }
 
   nextBtnClick() {
-    this.category$ = this.categoriesService.getAllCategories(++this.pageNumber, CategoriesPageSize.pageSize);
+    this.category$ = this.categoriesService.getAllCategories(++this.pageNumber, PageOptions.pageSize);
   }
 }

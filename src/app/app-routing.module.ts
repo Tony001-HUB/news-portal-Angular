@@ -12,8 +12,8 @@ const routes: Routes = [
 
       {path: '', component: CategoriesPageComponent},
       {path: 'posts', component: CardPostsPageComponent},
-      {path: 'post/:id', component: PostPageComponent},
-      {path: 'comments/post/:id', component: CommentsPageComponent}
+      {path: 'post.ts/:id', component: PostPageComponent},
+      {path: 'comments/post.ts/:id', component: CommentsPageComponent}
   ]}
 ];
 

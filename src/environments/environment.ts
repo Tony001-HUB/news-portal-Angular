@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  getCategoriesUrl: "https://localhost:44322/Categories"
+  getCategoriesUrl: "https://localhost:44322/Categories",
+  getPostsUrl: "https://localhost:44322/Posts"
 };
 
 /*
