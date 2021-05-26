@@ -13,11 +13,11 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPosts(pageNumber: number, pageSize: number): Observable<Response<Post>> {
+  getPosts(pageNumber: number, pageSize: number): Observable<Response<Post>> {
     return this.http.get<Response<Post>>(`${environment.getPostsUrl}?PageNumber=${pageNumber}&PageSize=${pageSize}`);
   }
 
-  getPostById(id: string): Observable<Response<Post>> {
-    return this.http.get<Response<Post>>(`${environment.getPostByIdUrl}/${id}`);
+  getPostById(id: string): Observable<Post> {
+    return this.http.get<Post>(`${environment.getPostByIdUrl}/${id}`);
   }
 }
