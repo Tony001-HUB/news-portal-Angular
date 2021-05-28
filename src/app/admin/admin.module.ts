@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { EditCategoriesComponent } from './edit-categories/edit-categories.component';
-import { EditCommentsComponent } from './edit-comments/edit-comments.component';
-import { EditPostsComponent } from './edit-posts/edit-posts.component';
+import { EditCommentComponent } from './edit-comment/edit-comment.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { CardPostsPageComponent } from './card-posts-page/card-posts-page.component';
@@ -15,8 +15,8 @@ import {PostPageComponent} from "../user/post-page/post-page.component";
   declarations: [
     AdminLayoutComponent,
     EditCategoriesComponent,
-    EditCommentsComponent,
-    EditPostsComponent,
+    EditCommentComponent,
+    EditPostComponent,
     EditCommentRateComponent,
     CategoryPageComponent,
     CardPostsPageComponent
@@ -29,8 +29,8 @@ import {PostPageComponent} from "../user/post-page/post-page.component";
           { path: '', component: LoginPageComponent },
           { path: 'edit-categories', component: EditCategoriesComponent },
           { path: 'edit-comment-rate', component: EditCommentRateComponent },
-          { path: 'edit-comments', component: EditCommentsComponent },
-          { path: 'edit-posts', component: EditPostsComponent },
+          { path: 'edit-comment', component: EditCommentComponent },
+          { path: 'edit-post/:id', component: EditPostComponent },
           { path: 'posts', component: CardPostsPageComponent },
           { path: 'categories', component: CategoryPageComponent }
         ]}
