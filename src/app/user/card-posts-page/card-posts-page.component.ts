@@ -25,7 +25,6 @@ export class CardPostsPageComponent implements OnInit {
   loadMore(currentPageItems: Post[]) {
     const nextPostsPage$: Observable<Response<Post>> = this.postsService.getPosts(++this.pageNumber, PageOptions.pageSize);
 
-
     combineLatest([this.post$, nextPostsPage$]).pipe(map(([existingPost, newPosts]) =>
       {
 

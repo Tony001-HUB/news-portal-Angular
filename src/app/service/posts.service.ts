@@ -5,6 +5,7 @@ import {Response} from "../models/response";
 import {Category} from "../models/category";
 import {environment} from "../../environments/environment";
 import {Post} from "../models/post";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class PostsService {
 
   getPostById(id: string): Observable<Post> {
     return this.http.get<Post>(`${environment.getPostByIdUrl}/${id}`);
+  }
+
+  getPostCategories(postId: string): Observable<Category[]> {
+    return this.http.get<Category[]>(`${environment.getPostCategory}/${postId}/categories`);
   }
 }

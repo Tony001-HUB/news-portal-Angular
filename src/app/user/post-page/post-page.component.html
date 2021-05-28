@@ -2,4 +2,11 @@
   <h1>{{currentPost.postId}}</h1>
   <h1>{{currentPost.content}}</h1>
   <h1>{{currentPost.title}}</h1>
+
+  <div *ngIf="postCategory$ | async as category">
+    <div *ngFor="let currentCategory of category">
+      <h2>{{currentCategory.categoryId}}</h2>
+    </div>
+  </div>
 </div>
+
