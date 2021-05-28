@@ -13,19 +13,8 @@ import {PageOptions} from "../../models/pageOptions";
 export class EditPostsComponent implements OnInit {
 
   constructor(private postsService: PostsService) { }
-  public posts$: Observable<Response<Post>>;
-  private pageNumber = 1;
 
   ngOnInit(): void {
-    this.posts$ = this.postsService.getPosts(this.pageNumber, PageOptions.pageSize);
-  }
-
-  previousBtnClick() {
-    this.posts$ = this.postsService.getPosts(--this.pageNumber, PageOptions.pageSize);
-  }
-
-  nextBtnClick() {
-    this.posts$ = this.postsService.getPosts(++this.pageNumber, PageOptions.pageSize);
   }
 
 }

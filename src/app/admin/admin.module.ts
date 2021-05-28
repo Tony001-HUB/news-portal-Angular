@@ -7,6 +7,9 @@ import { EditCategoriesComponent } from './edit-categories/edit-categories.compo
 import { EditCommentsComponent } from './edit-comments/edit-comments.component';
 import { EditPostsComponent } from './edit-posts/edit-posts.component';
 import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
+import { CardPostsPageComponent } from './card-posts-page/card-posts-page.component';
+import {PostPageComponent} from "../user/post-page/post-page.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +17,9 @@ import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.
     EditCategoriesComponent,
     EditCommentsComponent,
     EditPostsComponent,
-    EditCommentRateComponent
+    EditCommentRateComponent,
+    CategoryPageComponent,
+    CardPostsPageComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,8 @@ import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.
           { path: 'edit-comment-rate', component: EditCommentRateComponent },
           { path: 'edit-comments', component: EditCommentsComponent },
           { path: 'edit-posts', component: EditPostsComponent },
+          { path: 'posts', component: CardPostsPageComponent },
+          { path: 'categories', component: CategoryPageComponent }
         ]}
     ])
   ]

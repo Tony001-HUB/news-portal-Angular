@@ -1,0 +1,28 @@
+<div *ngIf="posts$ | async as response">
+  <div class="grid-container">
+    <div *ngFor="let currentPost of response.currentPageItems">
+      <div class="card">
+        <p>
+          {{currentPost.title}}
+        </p>
+        <p>
+          {{currentPost.content}}
+        </p>
+        <button [routerLink]="['post', currentPost.postId]">edit post</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex-center">
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasPreviousPage"
+      (click)="previousBtnClick()">
+      <---</button>
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasNextPage"
+      (click)="nextBtnClick()">
+      ---></button>
+  </div>
+</div>
