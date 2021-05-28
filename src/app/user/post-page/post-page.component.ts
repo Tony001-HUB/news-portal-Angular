@@ -27,8 +27,12 @@ export class PostPageComponent implements OnInit {
         mergeAll()
     );
 
-
-    this.postCategory$ = this.postsService.getPostCategories("6a95dd34-db41-4ff6-9ccf-115a75542326");
+    this.postCategory$ = this.route.paramMap
+      .pipe(
+        map((paramMap: ParamMap) => paramMap.get('id')),
+        map((id: string) => this.postsService.getPostCategories(id)),
+        mergeAll()
+      );
   }
 
 }

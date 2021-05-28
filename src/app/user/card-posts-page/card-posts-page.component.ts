@@ -16,19 +16,22 @@ export class CardPostsPageComponent implements OnInit {
 
   constructor(private postsService: PostsService) { }
   public post$: Observable<Response<Post>>;
+  public loadPost$: Observable<any>;
   pageNumber = 1;
 
   ngOnInit(): void {
     this.post$ = this.postsService.getPosts(this.pageNumber, PageOptions.pageSize);
   }
 
-  loadMore(currentPageItems: Post[]) {
+  loadMore() {
+    this.post$ = this.postsService.getPosts(this.pageNumber, PageOptions.pageSize);
+
     const nextPostsPage$: Observable<Response<Post>> = this.postsService.getPosts(++this.pageNumber, PageOptions.pageSize);
-
-    combineLatest([this.post$, nextPostsPage$]).pipe(map(([existingPost, newPosts]) =>
-      {
-
-      }
+    this.loadPost$ = combineLatest<Post[]>([this.post$, nextPostsPage$]).pipe(map(([existingPost, newPosts]) => {
+    return{
+      ...existingPost,
+      ...newPosts
+    };}
     ))
   }
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
       {path: '', redirectTo: '/', pathMatch: 'full'},
 
       {path: '', component: CardPostsPageComponent},
-      {path: 'category', component: CategoriesPageComponent},
+      {path: 'categories', component: CategoriesPageComponent},
       {path: 'post/:id', component: PostPageComponent},
       {path: 'comments/post.ts/:id', component: CommentsPageComponent}
   ]}
