@@ -14,7 +14,8 @@ const routes: Routes = [
       {path: 'categories', component: CategoriesPageComponent},
       {path: 'post/:id', component: PostPageComponent},
       {path: 'comments/post.ts/:id', component: CommentsPageComponent}
-  ]}
+  ]},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule) }
 ];
 
 @NgModule({
