@@ -1,6 +1,6 @@
 <div *ngIf="post$ | async as response; else loading">
   <div class="grid-container">
-    <div *ngFor="let currentCategory of response.currentPageItems">
+    <div *ngFor="let currentCategory of response">
       <div class="card">
         <p>
           {{currentCategory.title}}
@@ -13,26 +13,10 @@
     </div>
   </div>
 
-  <div *ngIf="loadPost$ | async as loadPost">
-    <div class="grid-container">
-      <div *ngFor="let post of loadPost.currentPageItems">
-        <div class="card">
-          <p>
-            {{post.title}}
-          </p>
-          <p>
-            {{post.postId}}
-          </p>
-          <button [routerLink]="['post', post.postId]">more information</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex-center">
+  <div class="flex-center" *ngIf="currentPostsPage$ | async as currentPostsPage;">
     <button
       class="waves-effect waves-light btn load-more-btn"
-      [disabled]="!response.hasNextPage"
+      [disabled]="!currentPostsPage.hasNextPage"
       (click)="loadMore()">
       load more
     </button>
