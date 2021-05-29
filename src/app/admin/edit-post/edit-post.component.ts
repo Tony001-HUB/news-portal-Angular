@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {PostsService} from "../../service/posts.service";
 import {Observable} from "rxjs";
 import {Post} from "../../models/post";
-import {Response} from "../../models/response";
-import {PageOptions} from "../../models/pageOptions";
-import {Category} from "../../models/category";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {map, mergeAll} from "rxjs/operators";
 
