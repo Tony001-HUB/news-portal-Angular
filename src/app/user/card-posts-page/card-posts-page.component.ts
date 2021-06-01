@@ -20,12 +20,16 @@ export class CardPostsPageComponent implements OnInit {
   pageNumber = 1;
 
   ngOnInit(): void {
-    this.post$ = this.postsService.getPosts(this.pageNumber, PageOptions.pageSize)
+    this.currentPostsPage$ = this.postsService.getPosts(++this.pageNumber, PageOptions.pageSize)
+      .pipe(
+        shareReplay(1)
+      );
+
+    this.post$ = this.currentPostsPage$
       .pipe(
         map(response => response.currentPageItems),
-        shareReplay(1));
-
-    this.currentPostsPage$ = this.postsService.getPosts(++this.pageNumber, PageOptions.pageSize);
+        shareReplay(1)
+      );
   }
 
   loadMore() {
