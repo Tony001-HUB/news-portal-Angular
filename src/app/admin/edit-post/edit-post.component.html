@@ -1,11 +1,11 @@
-<div *ngIf="post$ | async as currentPost">
+<div>
   <form>
   <p>postId:</p>
-  <input value="{{currentPost.postId}}">
+  <input formControlName="postId" value="{{post.postId}}">
   <p>content:</p>
-  <input value="{{currentPost.content}}">
+  <input formControlName="content" value="{{post.content}}">
   <p>title:</p>
-  <input value="{{currentPost.title}}">
+  <input formControlName="title" value="{{post.title}}">
     <button type="submit">Edit</button>
   </form>
 </div>

@@ -10,6 +10,7 @@ import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { CardPostsPageComponent } from './card-posts-page/card-posts-page.component';
 import {PostPageComponent} from "../user/post-page/post-page.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import {PostPageComponent} from "../user/post-page/post-page.component";
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       { path: '', component: AdminLayoutComponent, children: [
           { path: '', redirectTo: 'admin/login', pathMatch: 'full' },

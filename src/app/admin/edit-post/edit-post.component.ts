@@ -3,7 +3,8 @@ import {PostsService} from "../../service/posts.service";
 import {Observable} from "rxjs";
 import {Post} from "../../models/post";
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {map, mergeAll} from "rxjs/operators";
+import {map, mergeAll, switchMap} from "rxjs/operators";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-posts',
@@ -12,18 +13,23 @@ import {map, mergeAll} from "rxjs/operators";
 })
 export class EditPostComponent implements OnInit {
 
-  post$: Observable<Post>;
+  elementListWithForm$: Observable<{ list: Array<Element>, form: FormGroup }>;
+  post: Post;
+  form: FormGroup;
 
   constructor(private route: ActivatedRoute, private postsService: PostsService){}
 
   ngOnInit(): void {
-    this.post$ = this.route.paramMap
-      .pipe(
-        map((paramMap: ParamMap) => paramMap.get('id')),
-        map((id: string) => this.postsService.getPostById(id)),
-        mergeAll()
-      );
+    this.route.params.pipe( switchMap( params => {
+      return this.postsService.getPostById(params.id);
+    })).subscribe(post => {
+      this.post = post;
+      this.form = new FormGroup({
+        postId: new FormControl(this.post.postId, Validators.required),
+        content: new FormControl(this.post.content, Validators.required),
+        title: new FormControl(this.post.title, Validators.required)
+      });
+    });
   }
 
 }
-

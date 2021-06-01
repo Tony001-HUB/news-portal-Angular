@@ -10,6 +10,7 @@ import { CommentsPageComponent } from './user/comments-page/comments-page.compon
 import { LoginPageComponent } from './admin/login-page/login-page.component';
 import { CardPostsPageComponent } from './user/card-posts-page/card-posts-page.component';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
