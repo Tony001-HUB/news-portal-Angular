@@ -1,5 +1,7 @@
+<pre>{{formGroup.value | json}}</pre>
+
 <div>
-  <form>
+  <form [formGroup]="formGroup">
     <p>categoryId:</p>
     <input formControlName="categoryId">
     <p>title:</p>
