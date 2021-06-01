@@ -3,24 +3,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
-import { EditCategoriesComponent } from './edit-categories/edit-categories.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditCommentComponent } from './edit-comment/edit-comment.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.component';
-import { CategoryPageComponent } from './category-page/category-page.component';
+import { CardCategoriesPageComponent } from './card-categories-page/card-categories-page.component';
 import { CardPostsPageComponent } from './card-posts-page/card-posts-page.component';
 import {PostPageComponent} from "../user/post-page/post-page.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryFormComponent } from './forms/category-form/category-form.component';
 
 @NgModule({
   declarations: [
     AdminLayoutComponent,
-    EditCategoriesComponent,
+    EditCategoryComponent,
     EditCommentComponent,
     EditPostComponent,
     EditCommentRateComponent,
-    CategoryPageComponent,
-    CardPostsPageComponent
+    CardCategoriesPageComponent,
+    CardPostsPageComponent,
+    CategoryFormComponent
   ],
   imports: [
     CommonModule,
@@ -30,12 +32,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path: '', component: AdminLayoutComponent, children: [
           { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
           { path: '', component: LoginPageComponent },
-          { path: 'edit-categories', component: EditCategoriesComponent },
+          { path: 'edit-category/:id', component: EditCategoryComponent },
           { path: 'edit-comment-rate', component: EditCommentRateComponent },
           { path: 'edit-comment', component: EditCommentComponent },
           { path: 'edit-post/:id', component: EditPostComponent },
           { path: 'posts', component: CardPostsPageComponent },
-          { path: 'categories', component: CategoryPageComponent }
+          { path: 'categories', component: CardCategoriesPageComponent }
         ]}
     ])
   ]
