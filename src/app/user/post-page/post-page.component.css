@@ -1,0 +1,7 @@
+.text {
+  font-family: 'Nanum Myeongjo', serif;
+  min-height: 220px;
+  padding: 10px 10px;
+  border: 4px double black;
+  padding: 10px;
+}

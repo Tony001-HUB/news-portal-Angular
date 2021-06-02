@@ -1,9 +1,9 @@
 <div *ngIf="post$ | async as currentPost">
-  <p>{{currentPost.content}}</p>
+  <p class="text">{{currentPost.content}}</p>
 
   <div *ngIf="postCategory$ | async as category">
     <div *ngFor="let currentCategory of category">
-      <h2>Category title: {{currentCategory.title}}</h2>
+      <h2>Category: {{currentCategory.title}}</h2>
     </div>
   </div>
 </div>
