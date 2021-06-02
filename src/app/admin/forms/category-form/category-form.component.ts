@@ -13,6 +13,7 @@ export class CategoryFormComponent implements OnInit {
   @Input()
   public category: Category;
   public formGroup: FormGroup;
+  added = '';
 
   constructor(private formBuilder: FormBuilder, private categoriesService: CategoriesService) {}
 
@@ -28,6 +29,11 @@ export class CategoryFormComponent implements OnInit {
       return;
     }
 
-    this.categoriesService.putCategory(this.formGroup.value.categoryId, this.formGroup.value).subscribe();
+    this.categoriesService.putCategory(this.formGroup.value.categoryId, this.formGroup.value).subscribe(response =>
+      {
+        this.formGroup.reset();
+        this.added = 'Edit completed';
+      }
+    );
   }
 }
