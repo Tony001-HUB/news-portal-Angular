@@ -1,12 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {map, mergeAll} from "rxjs/operators";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {Observable} from "rxjs";
-import {Post} from "../../../models/post";
 import {Category} from "../../../models/category";
-import {PostsService} from "../../../service/posts.service";
-import {CategoriesService} from "../../../service/categories.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {CategoriesService} from "../../../service/categories.service";
 
 @Component({
   selector: 'app-category-form',
@@ -19,7 +14,7 @@ export class CategoryFormComponent implements OnInit {
   public category: Category;
   public formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -28,4 +23,11 @@ export class CategoryFormComponent implements OnInit {
     })
   }
 
+  submit() {
+    if (this.formGroup.invalid){
+      return;
+    }
+
+    this.categoriesService.putCategory(this.formGroup.value.categoryId, this.formGroup.value).subscribe();
+  }
 }

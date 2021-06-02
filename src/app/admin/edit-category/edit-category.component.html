@@ -1,1 +1,6 @@
-<app-category-form [category]="{categoryId: 1, title: 'бла бла бла', isEnabled: true}"></app-category-form>
+<div *ngIf="category$ | async as currentCategory">
+  <app-category-form [category]="currentCategory">
+
+  </app-category-form>
+</div>
+

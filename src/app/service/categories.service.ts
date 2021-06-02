@@ -21,4 +21,9 @@ export class CategoriesService {
   getCategoryById(id: string): Observable<Category> {
     return this.http.get<Category>(`${environment.getCategoryByIdUrl}/${id}`);
   }
+
+  putCategory(id: string, obj: Category): Observable<void> {
+    return this.http.put<void>(`${environment.putCategory}/${id}`, obj);
+  }
 }
+
