@@ -1,7 +1,5 @@
 <div *ngIf="post$ | async as currentPost">
-  <h1>{{currentPost.postId}}</h1>
-  <h1>{{currentPost.content}}</h1>
-  <h1>{{currentPost.title}}</h1>
+  <p>{{currentPost.content}}</p>
 
   <div *ngIf="postCategory$ | async as category">
     <div *ngFor="let currentCategory of category">

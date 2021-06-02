@@ -1,14 +1,12 @@
 <div *ngIf="post$ | async as response; else loading">
   <div class="grid-container">
-    <div *ngFor="let currentCategory of response">
+    <div *ngFor="let currentPost of response">
       <div class="card">
-        <p>
-          {{currentCategory.title}}
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhwbBcwy5B5v-fq2qrnSTVahHjuzkhCYZg2J8x2-wQiiPwNM20l5CAB74VJsE6pu1Jxg&usqp=CAU">
+        <p class="text-title">
+          {{currentPost.title}}
         </p>
-        <p>
-          {{currentCategory.postId}}
-        </p>
-          <button [routerLink]="['post', currentCategory.postId]">more information</button>
+          <button class="btn-floating btn-large waves-effect waves-light red" [routerLink]="['post', currentPost.postId]">more</button>
       </div>
     </div>
   </div>
