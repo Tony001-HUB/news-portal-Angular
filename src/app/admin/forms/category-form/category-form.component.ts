@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from "../../../models/category";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CategoriesService} from "../../../service/categories.service";
@@ -10,8 +10,8 @@ import {CategoriesService} from "../../../service/categories.service";
 })
 export class CategoryFormComponent implements OnInit {
 
-  @Input()
-  public category: Category;
+  @Input() public category: Category;
+  @Output() OnFormSubmit = new EventEmitter();
   public formGroup: FormGroup;
   added = '';
 
@@ -25,15 +25,8 @@ export class CategoryFormComponent implements OnInit {
   }
 
   submit() {
-    if (this.formGroup.invalid){
-      return;
-    }
-
-    this.categoriesService.putCategory(this.formGroup.value.categoryId, this.formGroup.value).subscribe(response =>
-      {
-        this.formGroup.reset();
-        this.added = 'Edit completed';
-      }
-    );
+    this.OnFormSubmit.emit(this.formGroup.value);
+    this.formGroup.reset();
+    this.added = 'Edit completed';
   }
 }

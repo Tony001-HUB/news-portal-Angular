@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {CategoriesService} from "../../service/categories.service";
 import {map, mergeAll} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {Observable} from "rxjs";
 import {Category} from "../../models/category";
+import {CategoryFormComponent} from "../forms/category-form/category-form.component";
 
 @Component({
   selector: 'app-edit-category',
@@ -12,6 +13,7 @@ import {Category} from "../../models/category";
 })
 export class EditCategoryComponent implements OnInit {
 
+  @Output()
   category$: Observable<Category>;
   constructor(private route: ActivatedRoute, private categoriesService: CategoriesService) { }
 
@@ -24,4 +26,7 @@ export class EditCategoryComponent implements OnInit {
       );
   }
 
+  submit($event: Category) {
+    this.categoriesService.putCategory($event.categoryId, $event).subscribe();
+  }
 }
