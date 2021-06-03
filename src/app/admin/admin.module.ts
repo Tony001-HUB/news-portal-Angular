@@ -12,6 +12,7 @@ import { CardPostsPageComponent } from './card-posts-page/card-posts-page.compon
 import {PostPageComponent} from "../user/post-page/post-page.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryFormComponent } from './forms/category-form/category-form.component';
+import { PostFormComponent } from './forms/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryFormComponent } from './forms/category-form/category-form.compo
     EditCommentRateComponent,
     CardCategoriesPageComponent,
     CardPostsPageComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    PostFormComponent
   ],
   imports: [
     CommonModule,

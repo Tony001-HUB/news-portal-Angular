@@ -25,4 +25,8 @@ export class PostsService {
   getPostCategories(postId: string): Observable<Category[]> {
     return this.http.get<Category[]>(`${environment.getPostCategory}/${postId}/categories`);
   }
+
+  putPost(id: string, obj: Post): Observable<void> {
+    return this.http.put<void>(`${environment.putPost}/${id}`, obj);
+  }
 }

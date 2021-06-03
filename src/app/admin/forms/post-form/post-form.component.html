@@ -1,0 +1,16 @@
+<form [formGroup]="formGroup">
+  <p>postId: </p>
+  <input formControlName="postId">
+  <p>content: </p>
+  <input formControlName="content">
+  <p>title: </p>
+  <input formControlName="title">
+  <button
+    type="submit"
+    (click)="submit()"
+    [disabled]="formGroup.invalid">
+    Edit
+  </button>
+</form>
+
+<div *ngIf="added" class="text-center text-success">{{added}}</div>

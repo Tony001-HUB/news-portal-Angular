@@ -9,7 +9,8 @@ export const environment = {
   getPostsUrl: "https://localhost:44322/Posts",
   getPostByIdUrl: "https://localhost:44322/Posts",
   getPostCategory: "https://localhost:44322/Posts",
-  putCategory: 'https://localhost:44322/Categories'
+  putCategory: 'https://localhost:44322/Categories',
+  putPost: 'https://localhost:44322/Posts'
 };
 
 /*

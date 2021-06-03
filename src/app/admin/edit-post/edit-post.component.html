@@ -1,11 +1,5 @@
-<div>
-  <form>
-  <p>postId:</p>
-  <input formControlName="postId" value="{{post.postId}}">
-  <p>content:</p>
-  <input formControlName="content" value="{{post.content}}">
-  <p>title:</p>
-  <input formControlName="title" value="{{post.title}}">
-    <button type="submit">Edit</button>
-  </form>
+<div *ngIf="post$ | async as response">
+  <app-post-form-component [post]="response" (OnFormSubmit)="submit($event)">
+
+  </app-post-form-component>
 </div>

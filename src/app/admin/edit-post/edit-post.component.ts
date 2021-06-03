@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {PostsService} from "../../service/posts.service";
-import {Observable} from "rxjs";
+import {Observable, pipe} from "rxjs";
 import {Post} from "../../models/post";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {map, mergeAll, switchMap} from "rxjs/operators";
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Category} from "../../models/category";
 
 @Component({
   selector: 'app-edit-posts',
@@ -13,23 +14,20 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class EditPostComponent implements OnInit {
 
-  elementListWithForm$: Observable<{ list: Array<Element>, form: FormGroup }>;
-  post: Post;
-  form: FormGroup;
+  post$: Observable<Post>;
 
   constructor(private route: ActivatedRoute, private postsService: PostsService){}
 
   ngOnInit(): void {
-    this.route.params.pipe( switchMap( params => {
-      return this.postsService.getPostById(params.id);
-    })).subscribe(post => {
-      this.post = post;
-      this.form = new FormGroup({
-        postId: new FormControl(this.post.postId, Validators.required),
-        content: new FormControl(this.post.content, Validators.required),
-        title: new FormControl(this.post.title, Validators.required)
-      });
-    });
+    this.post$ = this.route.paramMap
+      .pipe(
+        map((paramMap: ParamMap) => paramMap.get('id')),
+        map((id: string) => this.postsService.getPostById(id)),
+        mergeAll()
+      )
   }
 
+  submit($event: Post) {
+    this.postsService.putPost($event.postId, $event).subscribe();
+  }
 }

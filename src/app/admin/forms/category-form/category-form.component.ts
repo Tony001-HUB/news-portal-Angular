@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from "../../../models/category";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {CategoriesService} from "../../../service/categories.service";
 
 @Component({
   selector: 'app-category-form',
@@ -15,7 +14,7 @@ export class CategoryFormComponent implements OnInit {
   public formGroup: FormGroup;
   added = '';
 
-  constructor(private formBuilder: FormBuilder, private categoriesService: CategoriesService) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
