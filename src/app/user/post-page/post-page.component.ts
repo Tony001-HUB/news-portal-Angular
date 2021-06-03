@@ -27,6 +27,7 @@ export class PostPageComponent implements OnInit {
         mergeAll()
     );
 
+
     this.postCategory$ = this.route.paramMap
       .pipe(
         map((paramMap: ParamMap) => paramMap.get('id')),
