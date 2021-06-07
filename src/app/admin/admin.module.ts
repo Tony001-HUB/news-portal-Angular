@@ -13,6 +13,7 @@ import {PostPageComponent} from "../user/post-page/post-page.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryFormComponent } from './forms/category-form/category-form.component';
 import { PostFormComponent } from './forms/post-form/post-form.component';
+import { EditPostCategoryComponent } from './edit-post-category/edit-post-category.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PostFormComponent } from './forms/post-form/post-form.component';
     CardCategoriesPageComponent,
     CardPostsPageComponent,
     CategoryFormComponent,
-    PostFormComponent
+    PostFormComponent,
+    EditPostCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { PostFormComponent } from './forms/post-form/post-form.component';
           { path: 'edit-comment', component: EditCommentComponent },
           { path: 'edit-post/:id', component: EditPostComponent },
           { path: 'posts', component: CardPostsPageComponent },
-          { path: 'categories', component: CardCategoriesPageComponent }
+          { path: 'categories', component: CardCategoriesPageComponent },
+          { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent}
         ]}
     ])
   ]

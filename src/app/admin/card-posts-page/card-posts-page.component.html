@@ -5,7 +5,8 @@
         <p>
           {{currentPost.title}}
         </p>
-        <button [routerLink]="['/admin','edit-post',currentPost.postId]">edit post</button>
+          <button class="margin" [routerLink]="['/admin','edit-post',currentPost.postId]">edit post</button>
+          <button class="margin" [routerLink]="['/admin','edit-post',currentPost.postId, 'by', 'category']">edit post category</button>
       </div>
     </div>
   </div>
