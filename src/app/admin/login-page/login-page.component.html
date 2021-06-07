@@ -1,1 +1,13 @@
-<p>login-page works!</p>
+<form [formGroup]="formGroup">
+  <p>login: </p>
+  <input formControlName="login">
+  <p>password: </p>
+  <input formControlName="password">
+  <button
+    type="submit"
+    (click)="submit()"
+    [disabled]="formGroup.invalid">
+    Login
+  </button>
+</form>
+
