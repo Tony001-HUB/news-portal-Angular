@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoriesService} from "../../service/categories.service";
+import {Observable} from "rxjs";
+import {Category} from "../../models/category";
 
 @Component({
   selector: 'app-edit-post-category',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPostCategoryComponent implements OnInit {
 
-  constructor() { }
+  public category$: Observable<Category[]>
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.category$ = this.categoriesService.getCategoriesOfPost('ec27535f-f3c6-42ca-b928-2bd75312f836')
   }
 
 }

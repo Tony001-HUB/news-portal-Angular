@@ -1,1 +1,7 @@
-<p>edit-post-category works!</p>
+<div *ngIf="category$ | async as response">
+  <div *ngFor="let currentCategoryOfPost of response">
+      <span>
+        {{currentCategoryOfPost.title}}
+      </span>
+  </div>
+</div>
