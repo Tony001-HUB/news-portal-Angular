@@ -1,7 +1,26 @@
 <div *ngIf="category$ | async as response">
-  <div *ngFor="let currentCategoryOfPost of response">
-      <span>
-        {{currentCategoryOfPost.title}}
-      </span>
+  <div class="card">
+    <p>Current categories of post: </p>
+    <div *ngFor="let currentCategoryOfPost of response">
+      <span>{{currentCategoryOfPost.title}}</span>
+    </div>
   </div>
+
+
+
+  <form [formGroup]="formGroup">
+    <div *ngIf="postId | async as id">
+      <label for="post-id">Post id: </label>
+      <span>{{id}}</span>
+    </div>
+      <input formControlName="postId" id="post-id">
+      <label for="category-id">Enter category id</label>
+      <input formControlName="categoryId" id="category-id">
+
+      <button
+        type="submit"
+        (click)="submit()">
+        Add category
+      </button>
+  </form>
 </div>

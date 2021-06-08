@@ -9,7 +9,6 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { EditCommentRateComponent } from './edit-comment-rate/edit-comment-rate.component';
 import { CardCategoriesPageComponent } from './card-categories-page/card-categories-page.component';
 import { CardPostsPageComponent } from './card-posts-page/card-posts-page.component';
-import {PostPageComponent} from "../user/post-page/post-page.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryFormComponent } from './forms/category-form/category-form.component';
 import { PostFormComponent } from './forms/post-form/post-form.component';
