@@ -6,6 +6,8 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 import {map, mergeAll} from 'rxjs/operators';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PostsService} from "../../service/posts.service";
+import {PageOptions} from "../../models/pageOptions";
+import {Response} from "../../models/response";
 
 @Component({
   selector: 'app-edit-post-category',
@@ -15,8 +17,11 @@ import {PostsService} from "../../service/posts.service";
 export class EditPostCategoryComponent implements OnInit {
 
   public category$: Observable<Category[]>;
+  public allCategory$: Observable<Response<Category>>;
   public formGroup: FormGroup;
-  public postId: Observable<string>;
+  public postId$: Observable<string>;
+  private pageNumber = 1;
+
   constructor(
     private categoriesService: CategoriesService,
     private postsService: PostsService,
@@ -31,7 +36,7 @@ export class EditPostCategoryComponent implements OnInit {
       mergeAll()
     );
 
-    this.postId = this.activatedRoute.paramMap.pipe(
+    this.postId$ = this.activatedRoute.paramMap.pipe(
       map((paramMap: ParamMap) => paramMap.get('id'))
     );
 
@@ -39,9 +44,15 @@ export class EditPostCategoryComponent implements OnInit {
       postId: [null, [Validators.required]],
       categoryId: [null, [Validators.required]]
     })
+
+    this.allCategory$ = this.categoriesService.getAllCategories(this.pageNumber, PageOptions.pageSize)
   }
 
   submit() {
-    this.postsService.postCategoriesOfPost(this.formGroup.value.postId, this.formGroup.value.categoryId).subscribe();
+    this.postId$
+      .pipe(
+        map(postId => this.postsService.postCategoriesOfPost(postId, this.formGroup.value.categoryId)),
+        mergeAll()
+      ).subscribe();
   }
 }

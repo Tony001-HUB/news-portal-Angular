@@ -6,16 +6,10 @@
     </div>
   </div>
 
-
-
   <form [formGroup]="formGroup">
-    <div *ngIf="postId | async as id">
-      <label for="post-id">Post id: </label>
-      <span>{{id}}</span>
-    </div>
-      <input formControlName="postId" id="post-id">
-      <label for="category-id">Enter category id</label>
-      <input formControlName="categoryId" id="category-id">
+      <select formControlName="categoryId" style="display: block" *ngIf="allCategory$ | async as response">
+        <option *ngFor="let currentCategory of response.currentPageItems">{{currentCategory.categoryId}}</option>
+      </select>
 
       <button
         type="submit"
@@ -24,3 +18,4 @@
       </button>
   </form>
 </div>
+
