@@ -27,5 +27,9 @@ export class CategoriesService {
   getCategoriesOfPost(id: string): Observable<Category[]> {
     return this.http.get<Category[]>(`${environment.getCategoriesOfPostUrl}/${id}/categories`)
   }
+
+  deleteCategory(id: string): Observable<Category> {
+    return this.http.delete<Category>(`${environment.deleteCategory}/${id}`)
+  }
 }
 

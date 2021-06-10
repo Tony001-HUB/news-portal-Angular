@@ -1,5 +1,5 @@
 <div *ngIf="category$ | async as currentCategory">
-  <app-category-form [category]="currentCategory" (OnFormSubmit)="submit($event)" >
+  <app-category-form [category]="currentCategory" (OnFormEdit)="edit($event)" (OnFormDelete)="delete($event)">
 
   </app-category-form>
 </div>

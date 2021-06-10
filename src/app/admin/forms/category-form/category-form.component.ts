@@ -10,7 +10,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CategoryFormComponent implements OnInit {
 
   @Input() public category: Category;
-  @Output() OnFormSubmit = new EventEmitter();
+  @Output() OnFormEdit = new EventEmitter();
+  @Output() OnFormDelete = new EventEmitter();
   public formGroup: FormGroup;
   added = '';
 
@@ -23,9 +24,16 @@ export class CategoryFormComponent implements OnInit {
     })
   }
 
-  submit() {
-    this.OnFormSubmit.emit(this.formGroup.value);
+  edit() {
+    this.OnFormEdit.emit(this.formGroup.value);
     this.formGroup.reset();
     this.added = 'Edit completed';
   }
+
+  delete() {
+    this.OnFormDelete.emit(this.formGroup.value);
+    this.formGroup.reset();
+    this.added = 'Delete completed';
+  }
+
 }

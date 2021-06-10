@@ -26,7 +26,11 @@ export class EditCategoryComponent implements OnInit {
       );
   }
 
-  submit($event: Category) {
+  edit($event: Category) {
     this.categoriesService.putCategory($event.categoryId, $event).subscribe();
+  }
+
+  delete($event: Category) {
+    this.categoriesService.deleteCategory($event.categoryId).subscribe();
   }
 }

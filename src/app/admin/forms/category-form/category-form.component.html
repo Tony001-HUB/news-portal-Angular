@@ -8,9 +8,15 @@
     <input formControlName="title">
     <button
       type="submit"
-      (click)="submit()"
+      (click)="edit()"
       [disabled]="formGroup.invalid">
       Edit
+    </button>
+    <button
+      type="submit"
+      (click)="delete()"
+      [disabled]="formGroup.invalid">
+      Delete
     </button>
   </form>
 
