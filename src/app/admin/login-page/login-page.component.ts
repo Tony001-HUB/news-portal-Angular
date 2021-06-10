@@ -17,13 +17,7 @@ export class LoginPageComponent implements OnInit {
       password: [null, [Validators.required,  Validators.minLength(6)]],
     })
   }
-
   submit() {
-    const user = {
-      email: this.formGroup.value.login,
-      password: this.formGroup.value.password
-    };
-
-    console.log(user);
+    console.log(this.formGroup.value.subscribe());
   }
 }

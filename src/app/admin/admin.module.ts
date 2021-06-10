@@ -14,6 +14,7 @@ import { CategoryFormComponent } from './forms/category-form/category-form.compo
 import { PostFormComponent } from './forms/post-form/post-form.component';
 import { EditPostCategoryComponent } from './edit-post-category/edit-post-category.component';
 import { CreateNewCategoryComponent } from './create-new-category/create-new-category.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CreateNewCategoryComponent } from './create-new-category/create-new-cat
     CategoryFormComponent,
     PostFormComponent,
     EditPostCategoryComponent,
-    CreateNewCategoryComponent
+    CreateNewCategoryComponent,
+    RegistrationPageComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { CreateNewCategoryComponent } from './create-new-category/create-new-cat
           { path: 'posts', component: CardPostsPageComponent },
           { path: 'categories', component: CardCategoriesPageComponent },
           { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent},
-          { path: 'new-category', component: CreateNewCategoryComponent}
+          { path: 'new-category', component: CreateNewCategoryComponent},
+          { path: 'registration', component: RegistrationPageComponent}
         ]}
     ])
   ]

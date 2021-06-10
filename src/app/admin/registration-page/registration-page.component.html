@@ -1,7 +1,11 @@
 <form [formGroup]="formGroup">
-  <p>login: </p>
-  <input formControlName="login">
-  <p>password: </p>
+  <span>userName: </span>
+  <input formControlName="userName">
+  <span>email: </span>
+  <input formControlName="email">
+  <span>phoneNumber: </span>
+  <input formControlName="phoneNumber">
+  <span>password: </span>
   <input formControlName="password">
   <div class="flex-center">
     <button
@@ -11,7 +15,5 @@
       [disabled]="formGroup.invalid">
       Login
     </button>
-    <button class="btn" [routerLink]="['/admin', 'registration']">Create NEW Account</button>
   </div>
 </form>
-
