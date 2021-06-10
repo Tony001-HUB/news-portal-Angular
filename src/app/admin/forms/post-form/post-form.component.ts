@@ -19,7 +19,8 @@ export class PostFormComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       title: [this.post.title, [Validators.required, Validators.maxLength(64)]],
       content: [this.post.content, [Validators.required, Validators.minLength(64)]],
-      postId: [this.post.postId]
+      postId: [this.post.postId],
+      userId: [this.post.userId]
     })
   }
 

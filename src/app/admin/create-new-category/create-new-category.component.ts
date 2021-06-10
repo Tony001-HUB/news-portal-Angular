@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Category} from "../../models/category";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CategoriesService} from "../../service/categories.service";
 
