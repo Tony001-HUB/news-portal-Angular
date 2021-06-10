@@ -13,7 +13,8 @@ export const environment = {
   putPost: "https://localhost:44322/Posts",
   getCategoriesOfPostUrl: "https://localhost:44322/Posts",
   postCategoriesOfPostUrl: "https://localhost:44322/Posts",
-  deleteCategory: "https://localhost:44322/Categories"
+  deleteCategory: "https://localhost:44322/Categories",
+  postCategory: "https://localhost:44322/Categories"
 };
 
 /*
