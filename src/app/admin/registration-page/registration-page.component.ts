@@ -10,6 +10,7 @@ import {UsersService} from "../../service/users.service";
 export class RegistrationPageComponent implements OnInit {
 
   public formGroup: FormGroup;
+  added = '';
   constructor(private formBuilder: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,8 @@ export class RegistrationPageComponent implements OnInit {
       this.formGroup.value.phoneNumber,
       this.formGroup.value.password
     ).subscribe();
+    this.formGroup.reset();
+    this.added = 'Registration completed';
   }
 
 }
