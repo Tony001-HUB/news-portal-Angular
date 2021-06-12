@@ -22,7 +22,8 @@ export class EditUsersPageComponent implements OnInit {
   }
 
   editUser($event: User) {
-
+    this.usersService.putUser($event.userId, $event).subscribe();
+    location.reload();
   }
 
   previousBtnClick() {

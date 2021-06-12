@@ -16,16 +16,20 @@ export class UsersService {
     userName: string,
     email: string,
     phoneNumber: string,
-    password: string): Observable<string> {
+    userId: string): Observable<string> {
     return this.http.post(`${environment.postUser}/Users`, {
       userName: userName,
       email: email,
       phoneNumber: phoneNumber,
-      password: password
+      userId: userId
     }, {responseType: 'text'});
   }
 
   getUsers(pageNumber: number, pageSize: number): Observable<Response<User>>{
     return this.http.get<Response<User>>(`${environment.getUsers}PageNumber=${pageNumber}&PageSize=${pageSize}`)
+  }
+
+  putUser(id: string, user: User): Observable<void> {
+    return this.http.put<void>(`${environment.putUser}/${id}`, user)
   }
 }

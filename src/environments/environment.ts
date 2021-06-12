@@ -17,7 +17,8 @@ export const environment = {
   postCategory: "https://localhost:44322/Categories",
   postUser: "https://localhost:44322",
   postPosts: "https://localhost:44322/Posts",
-  getUsers: "https://localhost:44322/Users?"
+  getUsers: "https://localhost:44322/Users?",
+  putUser: "https://localhost:44322/Users"
 };
 
 /*
