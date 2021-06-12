@@ -1,0 +1,34 @@
+.card {
+  min-height: 190px;
+  padding: 10px 10px;
+  border: 4px double black;
+  padding: 10px;
+}
+
+.container {
+  max-width: 1000px;
+  min-height: 1000px;
+  margin: auto;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+}
+
+.grid-btn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 30px;
+}
+
+.margin {
+  margin: 10px;
+}

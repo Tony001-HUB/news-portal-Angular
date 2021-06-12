@@ -24,4 +24,12 @@ export class EditUsersPageComponent implements OnInit {
   editUser($event: User) {
 
   }
+
+  previousBtnClick() {
+    this.user$ = this.usersService.getUsers(--this.pageNumber, PageOptions.pageSize);
+  }
+
+  nextBtnClick() {
+    this.user$ = this.usersService.getUsers(++this.pageNumber, PageOptions.pageSize);
+  }
 }

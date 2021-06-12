@@ -5,4 +5,17 @@
     (OnFormSubmit)="editUser($event)">
 
   </app-user-form>
+
+  <div class="flex-center">
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasPreviousPage"
+      (click)="previousBtnClick()">
+      <---</button>
+    <button
+      class="waves-effect waves-light btn margin"
+      [disabled]="!response.hasNextPage"
+      (click)="nextBtnClick()">
+      ---></button>
+  </div>
 </div>
