@@ -5,7 +5,6 @@ import {Response} from "../models/response";
 import {Category} from "../models/category";
 import {environment} from "../../environments/environment";
 import {Post} from "../models/post";
-import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'

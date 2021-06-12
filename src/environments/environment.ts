@@ -16,7 +16,8 @@ export const environment = {
   deleteCategory: "https://localhost:44322/Categories",
   postCategory: "https://localhost:44322/Categories",
   postUser: "https://localhost:44322",
-  postPosts: "https://localhost:44322/Posts"
+  postPosts: "https://localhost:44322/Posts",
+  getUsers: "https://localhost:44322/Users?"
 };
 
 /*

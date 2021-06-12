@@ -1,0 +1,15 @@
+.card {
+  min-height: 190px;
+  padding: 10px 10px;
+  border: 4px double black;
+  padding: 10px;
+}
+
+.flex-end {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+}

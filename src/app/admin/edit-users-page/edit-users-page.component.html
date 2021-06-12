@@ -1,0 +1,8 @@
+<div *ngIf="user$ | async as response">
+  <app-user-form
+    [user]="currentUser"
+    *ngFor="let currentUser of response.currentPageItems"
+    (OnFormSubmit)="editUser($event)">
+
+  </app-user-form>
+</div>

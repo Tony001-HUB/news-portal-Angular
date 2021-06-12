@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import { User } from '../models/user';
+import {Response} from "../models/response";
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class UsersService {
       phoneNumber: phoneNumber,
       password: password
     }, {responseType: 'text'});
+  }
+
+  getUsers(pageNumber: number, pageSize: number): Observable<Response<User>>{
+    return this.http.get<Response<User>>(`${environment.getUsers}PageNumber=${pageNumber}&PageSize=${pageSize}`)
   }
 }

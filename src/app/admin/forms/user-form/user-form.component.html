@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+  <div class="card">
+    <input formControlName="userName">
+    <input formControlName="email">
+    <input formControlName="phoneNumber">
+    <input formControlName="userId">
+    <div class="flex-end">
+      <button
+        class="btn"
+        type="submit"
+        (click)="submit()"
+        [disabled]="formGroup.invalid">
+        Edit user
+      </button>
+    </div>
+  </div>
+</form>
