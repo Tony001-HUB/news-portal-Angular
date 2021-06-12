@@ -33,4 +33,15 @@ export class PostsService {
   postCategoriesOfPost(postId: string, categoryId: string): Observable<Post> {
     return this.http.post<Post>(`${environment.postCategoriesOfPostUrl}/${postId}/categories/${categoryId}`, {})
   }
+
+  postPost(
+    title: string,
+    content: string,
+    userId: string): Observable<string> {
+    return this.http.post(environment.postPosts, {
+        title: title,
+        content: content,
+        userId: userId},
+      {responseType: 'text'})
+  }
 }
