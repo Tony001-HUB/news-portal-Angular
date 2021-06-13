@@ -16,7 +16,7 @@ export class EditUsersPageComponent implements OnInit {
 
   public user$: Observable<Response<User>>;
   public pageNumber = 1;
-  public currentPageNumber;
+  public currentPageNumber = 1;
   constructor(private usersService: UsersService) {
   }
 
@@ -44,5 +44,13 @@ export class EditUsersPageComponent implements OnInit {
   btnClick(pageNumber: number) {
     this.currentPageNumber = pageNumber;
     this.user$ = this.usersService.getUsers(pageNumber, PageOptions.pageSize);
+  }
+
+  prevBtnClick() {
+    this.user$ = this.usersService.getUsers(this.currentPageNumber--, PageOptions.pageSize);
+  }
+
+  nextBtnClick() {
+    this.user$ = this.usersService.getUsers(this.currentPageNumber++, PageOptions.pageSize);
   }
 }

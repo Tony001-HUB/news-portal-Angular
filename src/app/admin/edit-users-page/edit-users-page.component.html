@@ -6,10 +6,12 @@
 
   </app-user-form>
 
-  <div>
-    <ul *ngFor="let number of getButtonNumbersArray(response.totalPagesCount)">
-      <li><button [disabled]="number==currentPageNumber" (click)="btnClick(number)" class="btn btn-primary mr2">{{number}}</button></li>
-    </ul>
+  <div class="flex-center">
+    <button [disabled]="currentPageNumber <= 1" (click)="prevBtnClick()" class="btn btn-primary margin mr2"><---</button>
+      <div *ngFor="let number of getButtonNumbersArray(response.totalPagesCount)">
+        <button [disabled]="number==currentPageNumber" (click)="btnClick(number)" class="btn btn-primary margin mr2">{{number}}</button>
+      </div>
+    <button [disabled]="currentPageNumber == response.totalPagesCount" (click)="nextBtnClick()" class="btn btn-primary margin mr2">---></button>
   </div>
 </div>
 
