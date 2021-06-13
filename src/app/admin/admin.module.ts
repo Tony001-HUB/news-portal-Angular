@@ -18,6 +18,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { CreateNewPostComponent } from './create-new-post/create-new-post.component';
 import { EditUsersPageComponent } from './edit-users-page/edit-users-page.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
+import { RolesPageComponent } from './roles-page/roles-page.component';
+import {RolesService} from "../service/roles.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
     RegistrationPageComponent,
     CreateNewPostComponent,
     EditUsersPageComponent,
-    UserFormComponent
+    UserFormComponent,
+    RolesPageComponent
   ],
   imports: [
     CommonModule,
@@ -56,6 +59,7 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
           { path: 'new-post', component: CreateNewPostComponent},
           { path: 'registration', component: RegistrationPageComponent},
           { path: 'users', component: EditUsersPageComponent},
+          { path: 'roles', component: RolesPageComponent},
         ]}
     ])
   ]
