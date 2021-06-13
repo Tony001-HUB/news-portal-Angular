@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgIterable, OnInit } from '@angular/core';
 import {UsersService} from "../../service/users.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable} from "rxjs";
 import {User} from "../../models/user";
 import {Response} from "../../models/response";
 import {PageOptions} from "../../models/pageOptions";
+import {map, shareReplay} from 'rxjs/operators';
+import {Post} from "../../models/post";
 
 @Component({
   selector: 'app-edit-users-page',
@@ -15,22 +16,33 @@ export class EditUsersPageComponent implements OnInit {
 
   public user$: Observable<Response<User>>;
   public pageNumber = 1;
-  constructor(private usersService: UsersService) { }
+  public currentPageNumber;
+  constructor(private usersService: UsersService) {
+  }
 
   ngOnInit(): void {
     this.user$ = this.usersService.getUsers(this.pageNumber, PageOptions.pageSize);
   }
 
   editUser($event: User) {
-    this.usersService.putUser($event.userId, $event).subscribe();
-    location.reload();
+    this.usersService.putUser($event.userId, $event).subscribe({
+      next: () => console.log('edit completed'),
+      error: (data) => console.log(`error: ${data}`)
+    });
   }
 
-  previousBtnClick() {
-    this.user$ = this.usersService.getUsers(--this.pageNumber, PageOptions.pageSize);
+  getButtonNumbersArray(totalPagesCount: number): number[] {
+    let arr = [];
+
+    for(let i = 1; i <= totalPagesCount; i++) {
+      arr.push(i);
+    }
+
+    return arr;
   }
 
-  nextBtnClick() {
-    this.user$ = this.usersService.getUsers(++this.pageNumber, PageOptions.pageSize);
+  btnClick(pageNumber: number) {
+    this.currentPageNumber = pageNumber;
+    this.user$ = this.usersService.getUsers(pageNumber, PageOptions.pageSize);
   }
 }

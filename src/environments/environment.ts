@@ -2,23 +2,25 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+  const rootPath = 'https://localhost:44322'
+
 export const environment = {
   production: false,
-  getCategoriesUrl: "https://localhost:44322/Categories",
-  getCategoryByIdUrl: "https://localhost:44322/Categories",
-  getPostsUrl: "https://localhost:44322/Posts",
-  getPostByIdUrl: "https://localhost:44322/Posts",
-  getPostCategory: "https://localhost:44322/Posts",
-  putCategory: "https://localhost:44322/Categories",
-  putPost: "https://localhost:44322/Posts",
-  getCategoriesOfPostUrl: "https://localhost:44322/Posts",
-  postCategoriesOfPostUrl: "https://localhost:44322/Posts",
-  deleteCategory: "https://localhost:44322/Categories",
-  postCategory: "https://localhost:44322/Categories",
-  postUser: "https://localhost:44322",
-  postPosts: "https://localhost:44322/Posts",
-  getUsers: "https://localhost:44322/Users?",
-  putUser: "https://localhost:44322/Users"
+  getCategoriesUrl: `${rootPath}/Categories`,
+  getCategoryByIdUrl: `${rootPath}/Categories`,
+  getPostsUrl: `${rootPath}/Posts`,
+  getPostByIdUrl: `${rootPath}/Posts`,
+  getPostCategory: `${rootPath}/Posts`,
+  putCategory: `${rootPath}/Categories`,
+  putPost: `${rootPath}/Posts`,
+  getCategoriesOfPostUrl: `${rootPath}/Posts`,
+  postCategoriesOfPostUrl: `${rootPath}/Posts`,
+  deleteCategory: `${rootPath}/Categories`,
+  postCategory: `${rootPath}/Categories`,
+  postUser: `${rootPath}`,
+  postPosts: `${rootPath}/Posts`,
+  getUsers: `${rootPath}/Users?`,
+  putUser: `${rootPath}/Users`
 };
 
 /*

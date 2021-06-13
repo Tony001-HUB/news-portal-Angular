@@ -1,3 +1,3 @@
 export class PageOptions {
-  public static pageSize = 9;
+  public static pageSize = 2;
 }

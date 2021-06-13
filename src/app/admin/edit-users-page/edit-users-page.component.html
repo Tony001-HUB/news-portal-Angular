@@ -6,16 +6,10 @@
 
   </app-user-form>
 
-  <div class="flex-center">
-    <button
-      class="waves-effect waves-light btn margin"
-      [disabled]="!response.hasPreviousPage"
-      (click)="previousBtnClick()">
-      <---</button>
-    <button
-      class="waves-effect waves-light btn margin"
-      [disabled]="!response.hasNextPage"
-      (click)="nextBtnClick()">
-      ---></button>
+  <div>
+    <ul *ngFor="let number of getButtonNumbersArray(response.totalPagesCount)">
+      <li><button [disabled]="number==currentPageNumber" (click)="btnClick(number)" class="btn btn-primary mr2">{{number}}</button></li>
+    </ul>
   </div>
 </div>
+
