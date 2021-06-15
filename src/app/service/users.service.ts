@@ -16,12 +16,12 @@ export class UsersService {
     userName: string,
     email: string,
     phoneNumber: string,
-    userId: string): Observable<string> {
+    password: string): Observable<string> {
     return this.http.post(`${environment.postUser}/Users`, {
       userName: userName,
       email: email,
       phoneNumber: phoneNumber,
-      userId: userId
+      password: password
     }, {responseType: 'text'});
   }
 

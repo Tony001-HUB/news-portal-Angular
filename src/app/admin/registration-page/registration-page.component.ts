@@ -23,6 +23,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   submit() {
+    console.log(this.formGroup.value);
     this.usersService.postUser(
       this.formGroup.value.userName,
       this.formGroup.value.email,

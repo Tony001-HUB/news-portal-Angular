@@ -6,7 +6,7 @@
 
 export const environment = {
   production: false,
-  getCategoriesUrl: `${rootPath}/Categories`,
+  getCategoriesUrl: `${rootPath}/Categories/paged-list`,
   getCategoryByIdUrl: `${rootPath}/Categories`,
   getPostsUrl: `${rootPath}/Posts`,
   getPostByIdUrl: `${rootPath}/Posts`,
@@ -22,7 +22,8 @@ export const environment = {
   getUsers: `${rootPath}/Users?`,
   putUser: `${rootPath}/Users`,
   getRoles: `${rootPath}/Roles`,
-  putRole: `${rootPath}/Roles`
+  putRole: `${rootPath}/Roles`,
+  getCategoriesListUrl: `${rootPath}/Categories/list`
 };
 
 /*

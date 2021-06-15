@@ -17,7 +17,7 @@ import {Response} from "../../models/response";
 export class EditPostCategoryComponent implements OnInit {
 
   public category$: Observable<Category[]>;
-  public allCategory$: Observable<Response<Category>>;
+  public allCategory$: Observable<Category[]>;
   public formGroup: FormGroup;
   public postId$: Observable<string>;
   private pageNumber = 1;
@@ -45,7 +45,7 @@ export class EditPostCategoryComponent implements OnInit {
       categoryId: [null, [Validators.required]]
     })
 
-    this.allCategory$ = this.categoriesService.getAllCategories(this.pageNumber, PageOptions.pageSize)
+    this.allCategory$ = this.categoriesService.getCategoriesList();
   }
 
   submit() {

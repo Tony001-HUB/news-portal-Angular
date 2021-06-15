@@ -16,6 +16,10 @@ export class CategoriesService {
     return this.http.get<Response<Category>>(`${environment.getCategoriesUrl}?PageNumber=${PageNumber}&PageSize=${PageSize}`);
   }
 
+  getCategoriesList(): Observable<Category[]> {
+    return this.http.get<Category[]>(`${environment.getCategoriesListUrl}`);
+  }
+
   getCategoryById(id: string): Observable<Category> {
     return this.http.get<Category>(`${environment.getCategoryByIdUrl}/${id}`);
   }

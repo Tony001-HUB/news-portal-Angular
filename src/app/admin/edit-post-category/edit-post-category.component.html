@@ -7,8 +7,8 @@
   </div>
 
   <form [formGroup]="formGroup">
-      <select formControlName="categoryId" style="display: block" *ngIf="allCategory$ | async as response">
-        <option *ngFor="let currentCategory of response.currentPageItems">{{currentCategory.categoryId}}</option>
+      <select formControlName="categoryId" style="display: block" *ngIf="allCategory$ | async as currentCategory">
+        <option *ngFor="let currentCategoryId of currentCategory">{{currentCategoryId.categoryId}}</option>
       </select>
 
       <button
@@ -18,4 +18,3 @@
       </button>
   </form>
 </div>
-
