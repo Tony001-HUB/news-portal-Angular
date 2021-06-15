@@ -1,8 +1,11 @@
+<div class="margin-top">
+  <div class="two"><h1>Welcome! Login as admin</h1></div>
+</div>
 <form [formGroup]="formGroup">
-  <p>login: </p>
-  <input formControlName="email">
-  <p>password: </p>
-  <input formControlName="password">
+  <div class="form-group">
+    <input id="name" formControlName="email"><label for="name">Email</label>
+    <input id="pass" formControlName="password"><label for="pass">Password</label>
+  </div>
   <div class="flex-center">
     <button
       type="submit"

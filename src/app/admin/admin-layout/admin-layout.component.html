@@ -1,7 +1,10 @@
 <div class="container">
   <nav class="teal darken-2">
     <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <ul
+        id="nav-mobile"
+        class="right hide-on-med-and-down"
+        *ngIf="authAdminService.isAuthAsAdmin()">
         <li><a [routerLink]="['/admin','categories']">Categories</a></li>
         <li><a [routerLink]="['/admin','new-category']">New category</a></li>
         <li><a [routerLink]="['/admin','posts']">Posts</a></li>
@@ -9,16 +12,15 @@
         <li><a [routerLink]="['/admin','users']">Users</a></li>
         <li><a [routerLink]="['/admin', 'registration']">Create NEW admin</a></li>
         <li><a [routerLink]="['/admin', 'roles']">Roles</a></li>
-        <li><a href="#" (click)="logout($event)">Logout</a></li>
+        <li><a style="color: brown; font-size: 20px; " href="#" (click)="logout($event)"><b>Logout</b></a></li>
       </ul>
     </div>
   </nav>
-
   <div>
     <router-outlet>
 
     </router-outlet>
   </div>
-
 </div>
+
 

@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
     this.authAdminService.authFireBase(user).subscribe(response =>
       {
         this.formGroup.reset()
-        this.router.navigate(['/admin', 'users'])
+        this.router.navigate(['/admin', 'dashboard'])
       }, () => {
         console.log(`error`)
       }

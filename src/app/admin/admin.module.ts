@@ -22,6 +22,7 @@ import { EditRolesPageComponent } from './edit-roles-page/edit-roles-page.compon
 import {RolesService} from "../service/roles.service";
 import { RoleFormComponent } from './forms/role-form/role-form.component';
 import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import {AuthGuard} from "../guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -52,19 +53,19 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
       { path: '', component: AdminLayoutComponent, children: [
           { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
           { path: '', component: LoginPageComponent },
-          { path: 'dashboard', component: DashboardPageComponent },
-          { path: 'edit-category/:id', component: EditCategoryComponent },
-          { path: 'edit-comment-rate', component: EditCommentRateComponent },
-          { path: 'edit-comment', component: EditCommentComponent },
-          { path: 'edit-post/:id', component: EditPostComponent },
-          { path: 'posts', component: CardPostsPageComponent },
-          { path: 'categories', component: CardCategoriesPageComponent },
-          { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent},
-          { path: 'new-category', component: CreateNewCategoryComponent},
-          { path: 'new-post', component: CreateNewPostComponent},
-          { path: 'registration', component: RegistrationPageComponent},
-          { path: 'users', component: EditUsersPageComponent},
-          { path: 'roles', component: EditRolesPageComponent},
+          { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
+          { path: 'edit-category/:id', component: EditCategoryComponent, canActivate: [AuthGuard] },
+          { path: 'edit-comment-rate', component: EditCommentRateComponent, canActivate: [AuthGuard] },
+          { path: 'edit-comment', component: EditCommentComponent, canActivate: [AuthGuard] },
+          { path: 'edit-post/:id', component: EditPostComponent, canActivate: [AuthGuard] },
+          { path: 'posts', component: CardPostsPageComponent, canActivate: [AuthGuard] },
+          { path: 'categories', component: CardCategoriesPageComponent, canActivate: [AuthGuard] },
+          { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent, canActivate: [AuthGuard]},
+          { path: 'new-category', component: CreateNewCategoryComponent, canActivate: [AuthGuard]},
+          { path: 'new-post', component: CreateNewPostComponent, canActivate: [AuthGuard]},
+          { path: 'registration', component: RegistrationPageComponent, canActivate: [AuthGuard]},
+          { path: 'users', component: EditUsersPageComponent, canActivate: [AuthGuard]},
+          { path: 'roles', component: EditRolesPageComponent, canActivate: [AuthGuard]},
         ]}
     ])
   ]
