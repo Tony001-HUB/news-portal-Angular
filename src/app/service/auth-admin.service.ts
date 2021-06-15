@@ -27,4 +27,21 @@ export class AuthAdminService {
       localStorage.clear();
     }
   }
+
+  get token() {
+    const endTokenTimeRent = new Date(localStorage.getItem('fb-token-end'));
+    if (new Date() > endTokenTimeRent)  {
+      this.logout();
+      return null;
+    }
+    return localStorage.getItem('fb-token');
+  }
+
+  logout() {
+    this.setToken(null);
+  }
+
+  isAuthAsAdmin() {
+    return !!this.token; //not null - true
+  }
 }

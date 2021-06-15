@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthAdminService} from "../../service/auth-admin.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authAdminService: AuthAdminService, public router: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout($event) {
+    $event.preventDefault();
+    this.authAdminService.logout();
+    this.router.navigate(['/admin']);
+  }
 }
