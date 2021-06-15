@@ -21,6 +21,9 @@ export class EditRolesPageComponent implements OnInit {
   }
 
   editRole($event: Role) {
-
+    this.rolesService.putRole($event.roleId, $event).subscribe({
+      next: () => console.log('edit completed'),
+      error: (data) => console.log(`error: ${data}`)
+    });
   }
 }

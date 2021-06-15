@@ -16,4 +16,8 @@ export class RolesService {
     return this.http.get<Response<Role>>(`${environment.getRoles}?PageNumber=${PageNumber}&PageSize=${PageSize}`)
   }
 
+  putRole(id: string, obj: Role): Observable<void> {
+    return this.http.put<void>(`${environment.putRole}/${id}`, obj);
+  }
+
 }

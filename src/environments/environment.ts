@@ -21,7 +21,8 @@ export const environment = {
   postPosts: `${rootPath}/Posts`,
   getUsers: `${rootPath}/Users?`,
   putUser: `${rootPath}/Users`,
-  getRoles: `${rootPath}/Roles`
+  getRoles: `${rootPath}/Roles`,
+  putRole: `${rootPath}/Roles`
 };
 
 /*
