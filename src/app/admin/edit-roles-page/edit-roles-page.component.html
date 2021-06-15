@@ -1,0 +1,5 @@
+<div *ngIf="role$ | async as response">
+  <app-role-form [roles]="currentRole" *ngFor="let currentRole of response.currentPageItems" (OnFormSubmit)="editRole($event)">
+
+  </app-role-form>
+</div>

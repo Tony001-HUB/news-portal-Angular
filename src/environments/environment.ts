@@ -20,7 +20,8 @@ export const environment = {
   postUser: `${rootPath}`,
   postPosts: `${rootPath}/Posts`,
   getUsers: `${rootPath}/Users?`,
-  putUser: `${rootPath}/Users`
+  putUser: `${rootPath}/Users`,
+  getRoles: `${rootPath}/Roles`
 };
 
 /*

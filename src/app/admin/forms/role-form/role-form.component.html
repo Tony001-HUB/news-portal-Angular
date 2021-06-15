@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup" ]>
+  <p>Name: </p>
+  <input formControlName="name">
+  <button
+    type="submit"
+    (click)="submit()"
+    [disabled]="formGroup.invalid">
+    Edit
+  </button>
+</form>
