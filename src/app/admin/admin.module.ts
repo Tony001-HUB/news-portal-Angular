@@ -21,6 +21,7 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
 import { EditRolesPageComponent } from './edit-roles-page/edit-roles-page.component';
 import {RolesService} from "../service/roles.service";
 import { RoleFormComponent } from './forms/role-form/role-form.component';
+import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RoleFormComponent } from './forms/role-form/role-form.component';
     EditUsersPageComponent,
     UserFormComponent,
     EditRolesPageComponent,
-    RoleFormComponent
+    RoleFormComponent,
+    DashboardPageComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { RoleFormComponent } from './forms/role-form/role-form.component';
       { path: '', component: AdminLayoutComponent, children: [
           { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
           { path: '', component: LoginPageComponent },
+          { path: 'dashboard', component: DashboardPageComponent },
           { path: 'edit-category/:id', component: EditCategoryComponent },
           { path: 'edit-comment-rate', component: EditCommentRateComponent },
           { path: 'edit-comment', component: EditCommentComponent },
