@@ -1,0 +1,5 @@
+<div *ngIf="comments$ | async as response">
+  <app-comments-page [comments]="response.currentPageItems">
+
+  </app-comments-page>
+</div>

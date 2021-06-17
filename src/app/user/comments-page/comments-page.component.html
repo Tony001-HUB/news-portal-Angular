@@ -1,1 +1,5 @@
-<p>comments-page works!</p>
+<div *ngFor="let currentComment of comments">
+  <p>
+    {{currentComment.content}}
+  </p>
+</div>
