@@ -25,7 +25,8 @@ export const environment = {
   putRole: `${rootPath}/Roles`,
   getCategoriesListUrl: `${rootPath}/Categories/list`,
   authFireBase: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCLmxLsuUid3YmplX7AE9uAqsLyh2MR8gc',
-  getComments: `${rootPath}/Posts`
+  getComments: `${rootPath}/Posts`,
+  authPostUrl: `${rootPath}/Users/login`
 };
 
 /*

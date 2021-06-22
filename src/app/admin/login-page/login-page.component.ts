@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UsersService} from "../../service/users.service";
+import jwt_decode from "jwt-decode";
 import {Router} from "@angular/router";
 import {AuthAdminService} from "../../service/auth-admin.service";
 
@@ -30,12 +30,8 @@ export class LoginPageComponent implements OnInit {
       returnSecureToken: true
     }
 
-    this.authAdminService.authFireBase(user).subscribe(response =>
-      {
+    this.authAdminService.auth(user).subscribe(response => {
         this.formGroup.reset()
-        this.router.navigate(['/admin', 'dashboard'])
-      }, () => {
-        console.log(`error`)
       }
     );
   }
