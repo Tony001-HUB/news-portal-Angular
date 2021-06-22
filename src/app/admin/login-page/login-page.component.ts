@@ -32,6 +32,9 @@ export class LoginPageComponent implements OnInit {
 
     this.authAdminService.auth(user).subscribe(response => {
         this.formGroup.reset()
+        this.router.navigate(['/admin', 'dashboard'])
+      }, () => {
+        console.log(`error`)
       }
     );
   }
