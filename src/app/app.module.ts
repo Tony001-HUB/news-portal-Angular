@@ -9,9 +9,10 @@ import { PostPageComponent } from './user/post-page/post-page.component';
 import { CommentsPageComponent } from './user/comments-page/comments-page.component';
 import { LoginPageComponent } from './admin/login-page/login-page.component';
 import { CardPostsPageComponent } from './user/card-posts-page/card-posts-page.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CommentsOfPostComponent } from './user/comments-of-post/comments-of-post.component';
+import {AuthInterceptor} from "./interceptors/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,13 @@ import { CommentsOfPostComponent } from './user/comments-of-post/comments-of-pos
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
