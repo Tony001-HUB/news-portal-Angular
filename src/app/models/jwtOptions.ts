@@ -1,3 +1,4 @@
 export interface JwtOptions {
-  nbf: number
+  nbf: number,
+  exp: number
 }

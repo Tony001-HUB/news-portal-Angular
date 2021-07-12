@@ -19,17 +19,19 @@ export class AuthAdminService {
   auth(user: Auth): Observable<Token> {
     return this.http.post<Token>(`${environment.authPostUrl}`, user)
       .pipe(
-        map(response => response.accessToken),
+        map(response => response),
         tap(this.setToken)
       )
   }
 
-  private setToken(response) {
+  public setToken(response: Token) {
     if (response) {
-      this.decoded = jwt_decode(response);
-      const endTokenTimeRent = new Date(new Date().getTime() + this.decoded.nbf);
+      this.decoded = jwt_decode(response.accessToken);
+      console.log(this.decoded);
+      const endTokenTimeRent = new Date(this.decoded.exp * 1000);
       localStorage.setItem('jwt-token-end', endTokenTimeRent.toString());
-      localStorage.setItem('jwt-token', response);
+      localStorage.setItem('jwt-token', response.accessToken);
+      localStorage.setItem('refresh-token', response.refreshToken);
     } else {
       localStorage.clear();
     }
@@ -38,7 +40,7 @@ export class AuthAdminService {
   get token() {
     const endTokenTimeRent = new Date(localStorage.getItem('jwt-token-end'));
     if (new Date() > endTokenTimeRent)  {
-      this.logout();
+      //this.logout();
       return null;
     }
     return localStorage.getItem('jwt-token');
@@ -50,5 +52,13 @@ export class AuthAdminService {
 
   isAuthAsAdmin() {
     return !!this.token; //not null - true
+  }
+
+  updatingAuth() {
+    const refreshToken = localStorage.getItem('refresh-token');
+    this.http.post('https://localhost:44322/Users/refresh-session', {refreshToken: refreshToken}).subscribe( (response: Token) => {
+      console.log("Тут: " + response);
+      this.setToken(response)
+    });
   }
 }

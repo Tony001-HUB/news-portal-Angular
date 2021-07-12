@@ -53,21 +53,22 @@ import {AuthGuard} from "../guards/auth.guard";
       { path: '', component: AdminLayoutComponent, children: [
           { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
           { path: '', component: LoginPageComponent },
-          { path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard] },
-          { path: 'edit-category/:id', component: EditCategoryComponent, canActivate: [AuthGuard] },
-          { path: 'edit-comment.ts-rate', component: EditCommentRateComponent, canActivate: [AuthGuard] },
-          { path: 'edit-comment.ts', component: EditCommentComponent, canActivate: [AuthGuard] },
-          { path: 'edit-post/:id', component: EditPostComponent, canActivate: [AuthGuard] },
-          { path: 'posts', component: CardPostsPageComponent, canActivate: [AuthGuard] },
-          { path: 'categories', component: CardCategoriesPageComponent, canActivate: [AuthGuard] },
-          { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent, canActivate: [AuthGuard]},
-          { path: 'new-category', component: CreateNewCategoryComponent, canActivate: [AuthGuard]},
-          { path: 'new-post', component: CreateNewPostComponent, canActivate: [AuthGuard]},
-          { path: 'registration', component: RegistrationPageComponent, canActivate: [AuthGuard]},
-          { path: 'users', component: EditUsersPageComponent, canActivate: [AuthGuard]},
-          { path: 'roles', component: EditRolesPageComponent, canActivate: [AuthGuard]},
+          { path: 'dashboard', component: DashboardPageComponent },
+          { path: 'edit-category/:id', component: EditCategoryComponent },
+          { path: 'edit-comment.ts-rate', component: EditCommentRateComponent },
+          { path: 'edit-comment.ts', component: EditCommentComponent },
+          { path: 'edit-post/:id', component: EditPostComponent  },
+          { path: 'posts', component: CardPostsPageComponent },
+          { path: 'categories', component: CardCategoriesPageComponent },
+          { path: 'edit-post/:id/by/category', component: EditPostCategoryComponent },
+          { path: 'new-category', component: CreateNewCategoryComponent },
+          { path: 'new-post', component: CreateNewPostComponent },
+          { path: 'registration', component: RegistrationPageComponent },
+          { path: 'users', component: EditUsersPageComponent },
+          { path: 'roles', component: EditRolesPageComponent },
         ]}
     ])
   ]
 })
 export class AdminModule { }
+//canActivate: [AuthGuard]

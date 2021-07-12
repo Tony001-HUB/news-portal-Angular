@@ -13,6 +13,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CommentsOfPostComponent } from './user/comments-of-post/comments-of-post.component';
 import {AuthInterceptor} from "./interceptors/auth-interceptor.service";
+import {ErrorHandlingInterceptor} from "./interceptors/error-handling-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,11 @@ import {AuthInterceptor} from "./interceptors/auth-interceptor.service";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlingInterceptor,
       multi: true
     }
   ],
