@@ -32,7 +32,7 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
       case 401:
         this.authAdminService.updatingAuth();
         return from(
-          this.router.navigateByUrl(`/admin`)
+          this.router.navigateByUrl(`/admin/categories`)
         );
       default:
         return throwError(error);

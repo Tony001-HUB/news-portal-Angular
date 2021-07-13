@@ -40,7 +40,7 @@ export class AuthAdminService {
   get token() {
     const endTokenTimeRent = new Date(localStorage.getItem('jwt-token-end'));
     if (new Date() > endTokenTimeRent)  {
-      //this.logout();
+      this.updatingAuth();
       return null;
     }
     return localStorage.getItem('jwt-token');
@@ -51,7 +51,7 @@ export class AuthAdminService {
   }
 
   isAuthAsAdmin() {
-    return !!this.token; //not null - true
+    return !!this.token; //not null - true !!this.token
   }
 
   updatingAuth() {
