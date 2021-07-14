@@ -40,7 +40,6 @@ export class AuthAdminService {
   get token() {
     const endTokenTimeRent = new Date(localStorage.getItem('jwt-token-end'));
     if (new Date() > endTokenTimeRent)  {
-      this.updatingAuth();
       return null;
     }
     return localStorage.getItem('jwt-token');
@@ -54,11 +53,19 @@ export class AuthAdminService {
     return !!this.token; //not null - true !!this.token
   }
 
-  updatingAuth() {
+  updatingAuth(): Observable<any> {
     const refreshToken = localStorage.getItem('refresh-token');
-    this.http.post('https://localhost:44322/Users/refresh-session', {refreshToken: refreshToken}).subscribe( (response: Token) => {
+    return this.http.post<any>('https://localhost:44322/Users/refresh-session', {refreshToken: refreshToken});
+  }
+
+  /*
+      if (localStorage.getItem('jwt-token') != null) {
+  this.updatingAuth();
+  }
+
+  subscribe( (response: Token) => {
       console.log("Тут: " + response);
       this.setToken(response)
     });
-  }
+   */
 }

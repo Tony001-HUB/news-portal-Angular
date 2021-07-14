@@ -6,8 +6,8 @@ import {
   HttpInterceptor,
   HttpErrorResponse, HttpClient,
 } from '@angular/common/http';
-import {from, Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import {Observable, throwError } from 'rxjs';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import {Router} from "@angular/router";
 import {AuthAdminService} from "../service/auth-admin.service";
 
@@ -20,22 +20,36 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError(
-          (error: HttpErrorResponse) => this.handleHttpError(error)
+          (error: HttpErrorResponse) => this.handleHttpError(error, next, request)
         )
       );
   }
 
   private handleHttpError(
-    error: HttpErrorResponse
+    error: HttpErrorResponse,
+    next: HttpHandler,
+    request: HttpRequest<unknown>
   ): Observable<any> {
     switch (error.status) {
       case 401:
-        this.authAdminService.updatingAuth();
-        return from(
-          this.router.navigateByUrl(`/admin/categories`)
-        );
+        return this.authAdminService.updatingAuth().pipe(
+          tap(v => {
+            this.authAdminService.setToken(v);
+          }),
+          switchMap(() => {
+            return this.getRequest(request, next)
+          })
+        )
       default:
         return throwError(error);
     }
+  }
+
+  private getRequest(request: HttpRequest<any>, next: HttpHandler) {
+    const accessToken = localStorage.getItem('jwt-token')
+    if (accessToken) {
+      return next.handle(request.clone({ headers: request.headers.set('Authorization', `Bearer ${ accessToken }`) }))
+    }
+    return next.handle(request)
   }
 }
